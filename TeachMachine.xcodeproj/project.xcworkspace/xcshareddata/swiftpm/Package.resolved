@@ -1,0 +1,32 @@
+{
+  "pins" : [
+    {
+      "identity" : "filepicker",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/markrenaud/FilePicker",
+      "state" : {
+        "branch" : "main",
+        "revision" : "720f8cb5ca0c0efc982ed381afc84ba3e8b3214e"
+      }
+    },
+    {
+      "identity" : "swiftuilib-document-picker",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/diegolavalledev/swiftuilib-document-picker",
+      "state" : {
+        "branch" : "develop",
+        "revision" : "dca7adf7c1ff5355b696ba2da7aebf6ffa9bb15d"
+      }
+    },
+    {
+      "identity" : "symbolpicker?ref=iosexample.com",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/xnth97/SymbolPicker?ref=iosexample.com",
+      "state" : {
+        "revision" : "27091f81af700848b185e51921ffda609179d89e",
+        "version" : "1.4.0"
+      }
+    }
+  ],
+  "version" : 2
+}

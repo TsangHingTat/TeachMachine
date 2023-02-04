@@ -10,13 +10,21 @@
 		791528C8298E027F00DBAF26 /* TeachMachineApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791528C7298E027F00DBAF26 /* TeachMachineApp.swift */; };
 		791528CA298E027F00DBAF26 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791528C9298E027F00DBAF26 /* Persistence.swift */; };
 		791528CD298E027F00DBAF26 /* TeachMachine.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 791528CB298E027F00DBAF26 /* TeachMachine.xcdatamodeld */; };
-		791528CF298E027F00DBAF26 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791528CE298E027F00DBAF26 /* ContentView.swift */; };
 		791528D1298E028000DBAF26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 791528D0298E028000DBAF26 /* Assets.xcassets */; };
 		791528D5298E028000DBAF26 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 791528D4298E028000DBAF26 /* Preview Assets.xcassets */; };
 		791528DF298E028000DBAF26 /* TeachMachineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791528DE298E028000DBAF26 /* TeachMachineTests.swift */; };
 		791528E9298E028000DBAF26 /* TeachMachineUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791528E8298E028000DBAF26 /* TeachMachineUITests.swift */; };
 		791528EB298E028000DBAF26 /* TeachMachineUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791528EA298E028000DBAF26 /* TeachMachineUITestsLaunchTests.swift */; };
 		79220D0D298E2FF40070FF06 /* ClassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79220D0C298E2FF40070FF06 /* ClassView.swift */; };
+		79A7043D298E89880057254C /* SymbolPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 79A7043C298E89880057254C /* SymbolPicker */; };
+		79A7043F298E89940057254C /* TeacherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A7043E298E89940057254C /* TeacherView.swift */; };
+		79A70441298E89B70057254C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A70440298E89B70057254C /* ContentView.swift */; };
+		79A70443298E8B250057254C /* getdata API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A70442298E8B250057254C /* getdata API.swift */; };
+		79A70445298E8BE20057254C /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A70444298E8BE20057254C /* ErrorView.swift */; };
+		79A7044B298EAE5A0057254C /* SwiftUILib.DocumentPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 79A7044A298EAE5A0057254C /* SwiftUILib.DocumentPicker */; };
+		79A7044E298EB3780057254C /* FilePicker in Frameworks */ = {isa = PBXBuildFile; productRef = 79A7044D298EB3780057254C /* FilePicker */; };
+		79A70450298ECE800057254C /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A7044F298ECE800057254C /* WebView.swift */; };
+		79A70455298ED9830057254C /* airplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A70454298ED9830057254C /* airplayView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +49,6 @@
 		791528C7298E027F00DBAF26 /* TeachMachineApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeachMachineApp.swift; sourceTree = "<group>"; };
 		791528C9298E027F00DBAF26 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		791528CC298E027F00DBAF26 /* TeachMachine.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TeachMachine.xcdatamodel; sourceTree = "<group>"; };
-		791528CE298E027F00DBAF26 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		791528D0298E028000DBAF26 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		791528D2298E028000DBAF26 /* TeachMachine.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TeachMachine.entitlements; sourceTree = "<group>"; };
 		791528D4298E028000DBAF26 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -51,6 +58,13 @@
 		791528E8298E028000DBAF26 /* TeachMachineUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeachMachineUITests.swift; sourceTree = "<group>"; };
 		791528EA298E028000DBAF26 /* TeachMachineUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeachMachineUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		79220D0C298E2FF40070FF06 /* ClassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassView.swift; sourceTree = "<group>"; };
+		79A7043E298E89940057254C /* TeacherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherView.swift; sourceTree = "<group>"; };
+		79A70440298E89B70057254C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		79A70442298E8B250057254C /* getdata API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "getdata API.swift"; sourceTree = "<group>"; };
+		79A70444298E8BE20057254C /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		79A7044F298ECE800057254C /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		79A70451298ED1310057254C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		79A70454298ED9830057254C /* airplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = airplayView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +72,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79A7044E298EB3780057254C /* FilePicker in Frameworks */,
+				79A7044B298EAE5A0057254C /* SwiftUILib.DocumentPicker in Frameworks */,
+				79A7043D298E89880057254C /* SymbolPicker in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +102,7 @@
 				791528DD298E028000DBAF26 /* TeachMachineTests */,
 				791528E7298E028000DBAF26 /* TeachMachineUITests */,
 				791528C5298E027F00DBAF26 /* Products */,
+				79A70449298EAE5A0057254C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,10 +119,16 @@
 		791528C6298E027F00DBAF26 /* TeachMachine */ = {
 			isa = PBXGroup;
 			children = (
+				79A70451298ED1310057254C /* Info.plist */,
 				791528C7298E027F00DBAF26 /* TeachMachineApp.swift */,
 				791528C9298E027F00DBAF26 /* Persistence.swift */,
-				791528CE298E027F00DBAF26 /* ContentView.swift */,
+				79A70440298E89B70057254C /* ContentView.swift */,
+				79A70444298E8BE20057254C /* ErrorView.swift */,
 				79220D0C298E2FF40070FF06 /* ClassView.swift */,
+				79A7043E298E89940057254C /* TeacherView.swift */,
+				79A70442298E8B250057254C /* getdata API.swift */,
+				79A7044F298ECE800057254C /* WebView.swift */,
+				79A70454298ED9830057254C /* airplayView.swift */,
 				791528D0298E028000DBAF26 /* Assets.xcassets */,
 				791528D2298E028000DBAF26 /* TeachMachine.entitlements */,
 				791528CB298E027F00DBAF26 /* TeachMachine.xcdatamodeld */,
@@ -138,6 +162,13 @@
 			path = TeachMachineUITests;
 			sourceTree = "<group>";
 		};
+		79A70449298EAE5A0057254C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -154,6 +185,11 @@
 			dependencies = (
 			);
 			name = TeachMachine;
+			packageProductDependencies = (
+				79A7043C298E89880057254C /* SymbolPicker */,
+				79A7044A298EAE5A0057254C /* SwiftUILib.DocumentPicker */,
+				79A7044D298EB3780057254C /* FilePicker */,
+			);
 			productName = TeachMachine;
 			productReference = 791528C4298E027F00DBAF26 /* TeachMachine.app */;
 			productType = "com.apple.product-type.application";
@@ -226,6 +262,11 @@
 				Base,
 			);
 			mainGroup = 791528BB298E027F00DBAF26;
+			packageReferences = (
+				79A7043B298E89880057254C /* XCRemoteSwiftPackageReference "SymbolPicker" */,
+				79A70446298EAC2D0057254C /* XCRemoteSwiftPackageReference "swiftuilib-document-picker" */,
+				79A7044C298EB3780057254C /* XCRemoteSwiftPackageReference "FilePicker" */,
+			);
 			productRefGroup = 791528C5298E027F00DBAF26 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -269,10 +310,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				791528C8298E027F00DBAF26 /* TeachMachineApp.swift in Sources */,
+				79A70450298ECE800057254C /* WebView.swift in Sources */,
 				79220D0D298E2FF40070FF06 /* ClassView.swift in Sources */,
+				79A70441298E89B70057254C /* ContentView.swift in Sources */,
+				79A70443298E8B250057254C /* getdata API.swift in Sources */,
 				791528CA298E027F00DBAF26 /* Persistence.swift in Sources */,
-				791528CF298E027F00DBAF26 /* ContentView.swift in Sources */,
 				791528CD298E027F00DBAF26 /* TeachMachine.xcdatamodeld in Sources */,
+				79A7043F298E89940057254C /* TeacherView.swift in Sources */,
+				79A70455298ED9830057254C /* airplayView.swift in Sources */,
+				79A70445298E8BE20057254C /* ErrorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,6 +477,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TeachMachine/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -439,9 +487,9 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
@@ -469,6 +517,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TeachMachine/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -477,9 +527,9 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
@@ -624,6 +674,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		79A7043B298E89880057254C /* XCRemoteSwiftPackageReference "SymbolPicker" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/xnth97/SymbolPicker?ref=iosexample.com";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		79A70446298EAC2D0057254C /* XCRemoteSwiftPackageReference "swiftuilib-document-picker" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/diegolavalledev/swiftuilib-document-picker";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
+		79A7044C298EB3780057254C /* XCRemoteSwiftPackageReference "FilePicker" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/markrenaud/FilePicker";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		79A7043C298E89880057254C /* SymbolPicker */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 79A7043B298E89880057254C /* XCRemoteSwiftPackageReference "SymbolPicker" */;
+			productName = SymbolPicker;
+		};
+		79A7044A298EAE5A0057254C /* SwiftUILib.DocumentPicker */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 79A70446298EAC2D0057254C /* XCRemoteSwiftPackageReference "swiftuilib-document-picker" */;
+			productName = SwiftUILib.DocumentPicker;
+		};
+		79A7044D298EB3780057254C /* FilePicker */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 79A7044C298EB3780057254C /* XCRemoteSwiftPackageReference "FilePicker" */;
+			productName = FilePicker;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		791528CB298E027F00DBAF26 /* TeachMachine.xcdatamodeld */ = {

@@ -6,115 +6,67 @@
 //
 
 import SwiftUI
-import CoreData
 
 struct ContentView: View {
-    @Environment(\.managedObjectContext) private var viewContext
-
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
-        animation: .default)
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
-    private var items: FetchedResults<Item>
-
-    @State var popover = false
-    @State var textedit = ""
-    
+    @EnvironmentObject var externalDisplayContent: ExternalDisplayContent
+    @State var isseledteachermode = false
+    @State var isteachermode = false
     var body: some View {
-        NavigationView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        ClassView(title: item.name ?? "")
-                    } label: {
-                        Text(item.name ?? "")
-                    }
-                }
-                .onDelete(perform: deleteItems)
-                
+        if isseledteachermode {
+            if isteachermode {
+                TeacherView()
+                    .environmentObject(externalDisplayContent)
+            } else {
+                ErrorView()
             }
-            .navigationTitle("課堂")
-            .toolbar {
-#if os(iOS)
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-#endif
-                ToolbarItem {
+        } else {
+            VStack {
+                Spacer()
+                Text("TeachMachine")
+                    .font(.largeTitle)
+                Spacer()
+                VStack {
                     Button(action: {
-                        popover.toggle()
-                    }) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
-            }
-            Text("Select an item")
-            
-        }.sheet(isPresented: $popover) {
-            NavigationView {
-                List {
-                    Section {
-                        Text("課堂名稱")
-                        TextField("課堂名稱", text: $textedit)
-                    }
-                    Section {
-                        Button("新增") {
-                            addItem()
-                            textedit = ""
-                            popover = false
+                        isseledteachermode = true
+                        isteachermode = true
+                    }, label: {
+                        VStack {
+                            Text("我是學生")
+                                .font(.largeTitle)
                         }
-                    }
+                    })
+                    .padding()
+                    Button(action: {
+                        isseledteachermode = true
+                        isteachermode = false
+                    }, label: {
+                        VStack {
+                            Text("我是老師")
+                                .font(.largeTitle)
+                        }
+                    })
+                    .padding()
                 }
-                .navigationTitle("新增一個課堂")
+                Spacer()
+                    .onAppear() {
+                        isteachermode = getdata().getdefaultsdatabool(type: "isteachermod")
+                        isseledteachermode = getdata().getdefaultsdatabool(type: "isseledteachermode")
+                    }
+                    .onReceive(timer) { input in
+                        getdata().savedefaultsdatabool(type: "isteachermod", data: isteachermode)
+                        getdata().savedefaultsdatabool(type: "isseledteachermode", data: isseledteachermode)
+                    }
             }
+            
         }
-        
-    }
-        
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
-            newItem.name = "\(textedit)"
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
+            
     }
 }
-
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .medium
-    return formatter
-}()
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        ContentView()
     }
 }
-
