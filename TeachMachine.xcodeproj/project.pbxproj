@@ -16,6 +16,7 @@
 		791528DF298E028000DBAF26 /* TeachMachineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791528DE298E028000DBAF26 /* TeachMachineTests.swift */; };
 		791528E9298E028000DBAF26 /* TeachMachineUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791528E8298E028000DBAF26 /* TeachMachineUITests.swift */; };
 		791528EB298E028000DBAF26 /* TeachMachineUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791528EA298E028000DBAF26 /* TeachMachineUITestsLaunchTests.swift */; };
+		79220D0D298E2FF40070FF06 /* ClassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79220D0C298E2FF40070FF06 /* ClassView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		791528E4298E028000DBAF26 /* TeachMachineUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TeachMachineUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		791528E8298E028000DBAF26 /* TeachMachineUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeachMachineUITests.swift; sourceTree = "<group>"; };
 		791528EA298E028000DBAF26 /* TeachMachineUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeachMachineUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		79220D0C298E2FF40070FF06 /* ClassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				791528C7298E027F00DBAF26 /* TeachMachineApp.swift */,
 				791528C9298E027F00DBAF26 /* Persistence.swift */,
 				791528CE298E027F00DBAF26 /* ContentView.swift */,
+				79220D0C298E2FF40070FF06 /* ClassView.swift */,
 				791528D0298E028000DBAF26 /* Assets.xcassets */,
 				791528D2298E028000DBAF26 /* TeachMachine.entitlements */,
 				791528CB298E027F00DBAF26 /* TeachMachine.xcdatamodeld */,
@@ -266,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				791528C8298E027F00DBAF26 /* TeachMachineApp.swift in Sources */,
+				79220D0D298E2FF40070FF06 /* ClassView.swift in Sources */,
 				791528CA298E027F00DBAF26 /* Persistence.swift in Sources */,
 				791528CF298E027F00DBAF26 /* ContentView.swift in Sources */,
 				791528CD298E027F00DBAF26 /* TeachMachine.xcdatamodeld in Sources */,
