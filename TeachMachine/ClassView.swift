@@ -13,9 +13,15 @@ import Foundation
 
 struct ClassView: View {
     @EnvironmentObject var externalDisplayContent: ExternalDisplayContent
+    @Environment(\.managedObjectContext) private var viewContext
     @State var docView = false
     @State var alldata: String
     @State var title: String
+    
+    @State var addViewshowing = false
+    @State var filename = ""
+    
+    @Binding var alldata2: String
     
     @State var files: Array<String> = []
     @State var opening = "nil"
@@ -26,64 +32,77 @@ struct ClassView: View {
             VStack {
                 NavigationView {
                     List {
-                        if files == [] {
+                        if files == [""] {
                             Text("add a file")
                         } else {
-                            ForEach(files, id: \.self) { i in
-                                if i[0 ..< 5] == "lkcn." {
-                                    let parsed = i.replacingOccurrences(of: "lkcn.", with: "")
-                                    let parsed2 = parsed.replacingOccurrences(of: "lkcu.", with: "")
-                                    let parsed3 = parsed2.replacingOccurrences(of: "%20", with: " ")
-                                    let filepath = files[Int(files.lastIndex(of: i) ?? 0)+Int(1)]
-                                    NavigationLink(destination: Fileview(name: parsed3, path: filepath)
-                                        .toolbar {
-                                            Button("cast") {
-                                                opentv = opening
-                                                externalDisplayContent.string = opening
-                                                
-                                            }
-                                        }, label: {
-                                        Text(parsed3)
-                                    })
+                            if files.count != 0 {
+                                ForEach((1...files.count), id: \.self) { i in
+                                    if files[i-1][0 ..< 5] == "lkcn." {
+                                        let parsed = files[i-1].replacingOccurrences(of: "lkcn.", with: "")
+                                        let parsed2 = parsed.replacingOccurrences(of: "lkcu.", with: "")
+                                        let parsed3 = parsed2.replacingOccurrences(of: "%20", with: " ")
+                                        NavigationLink(destination: newfileView(title: parsed3, text: $files[i-1+1]), label: {
+                                            Text(parsed3)
+                                        })
+                                    }
+                                }.onDelete { indexSet in
+                                    let a = "\(indexSet)"
+                                    if let b = Int.parse(from: a) {
+                                        files.remove(at: b-1)
+                                        files.remove(at: b-1)
+                                    }
+                                    
                                 }
-                                
                             }
+                            
+                            
                         }
                     }
                     .toolbar {
-                        FilePicker(types: [.init(filenameExtension: "pdf")!, .init(filenameExtension: "swift")!], allowMultiple: false, title: "Add file") { urls in
-                            let theFileName = ("\(urls[0])" as NSString).lastPathComponent
-                            files.append(contentsOf: ["lkcn.\(theFileName)", "\(urls[0])"])
-                            print(urls)
+                        Button("add file") {
+                            addViewshowing = true
                         }
+                        .navigationTitle("Files")
+                        
                     }
-                    .navigationTitle("Files")
                 }
                 
             }
+            .onChange(of: files) { i in
+                getdata().savedefaultsdata(type: "sfg\(title)", data: getdata().arraytostring(array: files))
+            }
+            .onAppear() {
+                files = getdata().stringtoarray(string: getdata().getdefaultsdata(type: "sfg\(title)"))
+            }
             
         }
+        .sheet(isPresented: $addViewshowing) {
+            NavigationStack {
+                List {
+                    Text("File name")
+                    TextField("File name", text: $filename)
+                    Section {
+                        Button("add file") {
+                            files.append(contentsOf: ["lkcn.\(filename)", ""])
+                            filename = ""
+                            addViewshowing.toggle()
+                            getdata().savedefaultsdata(type: "sfg\(title)", data: getdata().arraytostring(array: files))
+                        }
+                    }
+                }
+                .navigationBarTitle("Add a file")
+            }
+        }
+#if os(iOS)
         .navigationTitle(title)
         .navigationBarTitleDisplayMode(.inline)
-        .navigationBarTitle("")
-        .navigationBarHidden(true)
-        
+#endif
     }
     
     
 }
 
 
-struct Fileview: View {
-    var name: String
-    var path: String
-    var body: some View {
-        VStack {
-            TaskSwipeGesture(urlWeb: "\(path)")
-        }
-        .navigationBarTitle(name)
-    }
-}
 
 extension String {
     
@@ -112,3 +131,9 @@ extension String {
     }
 }
 
+
+extension Int {
+    static func parse(from string: String) -> Int? {
+        return Int(string.components(separatedBy: CharacterSet.decimalDigits.inverted).joined())
+    }
+}

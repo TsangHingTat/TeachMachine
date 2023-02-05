@@ -30,7 +30,7 @@ struct ContentView: View {
                 VStack {
                     Button(action: {
                         isseledteachermode = true
-                        isteachermode = true
+                        isteachermode = false
                     }, label: {
                         VStack {
                             Text("我是學生")
@@ -40,7 +40,7 @@ struct ContentView: View {
                     .padding()
                     Button(action: {
                         isseledteachermode = true
-                        isteachermode = false
+                        isteachermode = true
                     }, label: {
                         VStack {
                             Text("我是老師")

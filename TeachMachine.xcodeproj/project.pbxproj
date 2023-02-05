@@ -15,6 +15,7 @@
 		791528DF298E028000DBAF26 /* TeachMachineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791528DE298E028000DBAF26 /* TeachMachineTests.swift */; };
 		791528E9298E028000DBAF26 /* TeachMachineUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791528E8298E028000DBAF26 /* TeachMachineUITests.swift */; };
 		791528EB298E028000DBAF26 /* TeachMachineUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791528EA298E028000DBAF26 /* TeachMachineUITestsLaunchTests.swift */; };
+		791DCA08299014110058AAE8 /* newfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791DCA07299014110058AAE8 /* newfileView.swift */; };
 		79220D0D298E2FF40070FF06 /* ClassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79220D0C298E2FF40070FF06 /* ClassView.swift */; };
 		79A7043D298E89880057254C /* SymbolPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 79A7043C298E89880057254C /* SymbolPicker */; };
 		79A7043F298E89940057254C /* TeacherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A7043E298E89940057254C /* TeacherView.swift */; };
@@ -57,6 +58,7 @@
 		791528E4298E028000DBAF26 /* TeachMachineUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TeachMachineUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		791528E8298E028000DBAF26 /* TeachMachineUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeachMachineUITests.swift; sourceTree = "<group>"; };
 		791528EA298E028000DBAF26 /* TeachMachineUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeachMachineUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		791DCA07299014110058AAE8 /* newfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newfileView.swift; sourceTree = "<group>"; };
 		79220D0C298E2FF40070FF06 /* ClassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassView.swift; sourceTree = "<group>"; };
 		79A7043E298E89940057254C /* TeacherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherView.swift; sourceTree = "<group>"; };
 		79A70440298E89B70057254C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				79A70442298E8B250057254C /* getdata API.swift */,
 				79A7044F298ECE800057254C /* WebView.swift */,
 				79A70454298ED9830057254C /* airplayView.swift */,
+				791DCA07299014110058AAE8 /* newfileView.swift */,
 				791528D0298E028000DBAF26 /* Assets.xcassets */,
 				791528D2298E028000DBAF26 /* TeachMachine.entitlements */,
 				791528CB298E027F00DBAF26 /* TeachMachine.xcdatamodeld */,
@@ -313,6 +316,7 @@
 				79A70450298ECE800057254C /* WebView.swift in Sources */,
 				79220D0D298E2FF40070FF06 /* ClassView.swift in Sources */,
 				79A70441298E89B70057254C /* ContentView.swift in Sources */,
+				791DCA08299014110058AAE8 /* newfileView.swift in Sources */,
 				79A70443298E8B250057254C /* getdata API.swift in Sources */,
 				791528CA298E027F00DBAF26 /* Persistence.swift in Sources */,
 				791528CD298E027F00DBAF26 /* TeachMachine.xcdatamodeld in Sources */,

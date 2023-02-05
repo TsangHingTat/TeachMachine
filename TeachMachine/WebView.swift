@@ -20,15 +20,11 @@ struct TaskSwipeGesture: View {
     @State var update = false
     let urlWeb: String
     var body: some View {
-//        if update {
-//            refreshhelper(update: $update)
-//        } else {
-            WebView(url: urlWeb)
-//                .onChange(of: urlWeb) { i in
-//                    update = true
-//                }
-//        }
-        
+#if os(iOS)
+        WebView(url: urlWeb)
+#elseif os(macOS)
+        WebView(request: URLRequest(url: URL(string: urlWeb)!))
+#endif
     }
 }
 
@@ -41,6 +37,8 @@ struct refreshhelper: View {
             }
     }
 }
+
+#if os(iOS)
 
 class MyScrollViewDelegate: NSObject {
     weak var webView: WKWebView?
@@ -88,3 +86,20 @@ struct WebView: UIViewRepresentable {
         uiView.load(request)
     }
 }
+
+#elseif os(macOS)
+
+struct WebView: NSViewRepresentable {
+
+    let request: URLRequest
+
+    func makeNSView(context: Context) -> WKWebView {
+        return WKWebView()
+    }
+    
+    func updateNSView(_ nsView: WKWebView, context: Context) {
+        nsView.load(request)
+    }
+}
+
+#endif

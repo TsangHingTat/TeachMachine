@@ -6,7 +6,11 @@
 //
 
 import SwiftUI
+
+#if os(iOS)
 import UIKit
+#endif
+
 import Combine
 
 @main
@@ -14,17 +18,22 @@ struct TeachMachineApp: App {
     let persistenceController = PersistenceController.shared
     
     @ObservedObject var externalDisplayContent = ExternalDisplayContent()
+#if os(iOS)
     @State var additionalWindows: [UIWindow] = []
+#endif
     
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environmentObject(externalDisplayContent)
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
+#if os(iOS)
                 .onReceive(screenDidConnectPublisher, perform: screenDidConnect)
                 .onReceive(screenDidDisconnectPublisher, perform: screenDidDisconnect)
+#endif
         }
     }
+#if os(iOS)
     private var screenDidConnectPublisher: AnyPublisher<UIScreen, Never> {
       NotificationCenter.default
         .publisher(for: UIScreen.didConnectNotification)
@@ -60,10 +69,15 @@ struct TeachMachineApp: App {
        additionalWindows.removeAll { $0.screen == screen }
        externalDisplayContent.isShowingOnExternalDisplay = false
     }
+#endif
+    
 }
+
+
 
 class ExternalDisplayContent: ObservableObject {
     @Published var string = ""
     @Published var isShowingOnExternalDisplay = false
-    @Published var image = UIImage()
+//    @Published var image = UIImage()
 }
+

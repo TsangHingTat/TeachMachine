@@ -120,6 +120,8 @@ class getdata {
             defaults.set(text, forKey: "\(datedatanow)datacal4")
         }
     }
+    
+#if os(iOS)
     func notification(title: String, subtitle: String) -> Void {
         let content = UNMutableNotificationContent()
         content.title = "\(title)"
@@ -128,6 +130,7 @@ class getdata {
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request)
     }
+#endif
     
     func clear() -> Void {
         let defaults = UserDefaults.standard
@@ -135,6 +138,24 @@ class getdata {
         dictionary.keys.forEach { key in
             defaults.removeObject(forKey: key)
         }
+    }
+    
+    func arraytostring(array: Array<String>) -> String {
+        let names = array
+        var nameString = names.joined(separator: "/dsf/")
+        if nameString != "" {
+            nameString.remove(at: nameString.startIndex)
+            nameString.remove(at: nameString.startIndex)
+            nameString.remove(at: nameString.startIndex)
+            nameString.remove(at: nameString.startIndex)
+            nameString.remove(at: nameString.startIndex)
+        }
+        return nameString
+    }
+    func stringtoarray(string: String) -> Array<String> {
+        let string = string
+        var array = string.components(separatedBy: "/dsf/")
+        return array
     }
 }
 

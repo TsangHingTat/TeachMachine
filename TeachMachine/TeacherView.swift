@@ -22,6 +22,8 @@ struct TeacherView: View {
     @State var popover = false
     @State var textedit = ""
     
+    @State var alldata = ""
+    
     @State var icon = "questionmark.square"
     
     var body: some View {
@@ -30,7 +32,7 @@ struct TeacherView: View {
                 ForEach(items) { item in
                     Group {
                         NavigationLink {
-                            ClassView(alldata: item.alldata ?? "", title: item.name ?? "")
+                            ClassView(alldata: item.alldata ?? "", title: item.name ?? "", alldata2: $alldata)
                                 .environmentObject(externalDisplayContent)
                         } label: {
                             Label("\(item.name ?? "")", systemImage: "\(item.image ?? "")")
@@ -39,7 +41,7 @@ struct TeacherView: View {
                 }
                 .onDelete(perform: deleteItems)
             }
-            .listStyle(InsetGroupedListStyle())
+//            .listStyle(InsetGroupedListStyle())
             .navigationTitle("課堂")
             .toolbar {
 #if os(iOS)
@@ -57,8 +59,9 @@ struct TeacherView: View {
             }
             Text("Select an item")
             
-        }.sheet(isPresented: $popover) {
-            NavigationView {
+        }
+        .sheet(isPresented: $popover) {
+            NavigationStack {
                 List {
                     Section {
                         Text("課堂名稱")

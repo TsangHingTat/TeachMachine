@@ -11,7 +11,13 @@ struct airplayView: View {
     @EnvironmentObject var externalDisplayContent: ExternalDisplayContent
     var body: some View {
         if externalDisplayContent.string != "" {
-            WebView(url: "\(externalDisplayContent.string)")
+#if os(iOS)
+            VStack {
+                WebView(url: "\(externalDisplayContent.string)")
+            }
+#elseif os(macOS)
+            WebView(request: URLRequest(url: URL(string: "\(externalDisplayContent.string)")!))
+#endif
         } 
     }
 }
