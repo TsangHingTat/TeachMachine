@@ -11,8 +11,8 @@ struct airplayView: View {
     @EnvironmentObject var externalDisplayContent: ExternalDisplayContent
     var body: some View {
         if externalDisplayContent.string != "" {
-            WebView(url: URL(string: "\(externalDisplayContent.string)")!)
-        }
+            WebView(url: "\(externalDisplayContent.string)")
+        } 
     }
 }
 

@@ -10,6 +10,7 @@ import FilePicker
 import SwiftUI
 import Foundation
 
+
 struct ClassView: View {
     @EnvironmentObject var externalDisplayContent: ExternalDisplayContent
     @State var docView = false
@@ -19,17 +20,10 @@ struct ClassView: View {
     @State var files: Array<String> = []
     @State var opening = "nil"
     @State var opentv = "nil"
+    
     var body: some View {
         HStack {
             VStack {
-                ZStack {
-                    VStack {
-                        WebView(url: URL(string: "\(opentv)")!)
-                    }
-                    
-                }
-                
-                .navigationViewStyle(StackNavigationViewStyle())
                 NavigationView {
                     List {
                         if files == [] {
@@ -40,63 +34,75 @@ struct ClassView: View {
                                     let parsed = i.replacingOccurrences(of: "lkcn.", with: "")
                                     let parsed2 = parsed.replacingOccurrences(of: "lkcu.", with: "")
                                     let parsed3 = parsed2.replacingOccurrences(of: "%20", with: " ")
-                                    Button(parsed3) {
-                                        opening = "\(files[Int(files.lastIndex(of: i) ?? 0)+Int(1)])"
-                                    }
+                                    let filepath = files[Int(files.lastIndex(of: i) ?? 0)+Int(1)]
+                                    NavigationLink(destination: Fileview(name: parsed3, path: filepath)
+                                        .toolbar {
+                                            Button("cast") {
+                                                opentv = opening
+                                                externalDisplayContent.string = opening
+                                                
+                                            }
+                                        }, label: {
+                                        Text(parsed3)
+                                    })
                                 }
                                 
                             }
                         }
                     }
-                        .toolbar {
-                            FilePicker(types: [.init(filenameExtension: "pdf")!, .init(filenameExtension: "swift")!], allowMultiple: false, title: "Add file") { urls in
-                                let theFileName = ("\(urls[0])" as NSString).lastPathComponent
-                                files.append(contentsOf: ["lkcn.\(theFileName)", "\(urls[0])"])
-                                print(urls)
-                            }
+                    .toolbar {
+                        FilePicker(types: [.init(filenameExtension: "pdf")!, .init(filenameExtension: "swift")!], allowMultiple: false, title: "Add file") { urls in
+                            let theFileName = ("\(urls[0])" as NSString).lastPathComponent
+                            files.append(contentsOf: ["lkcn.\(theFileName)", "\(urls[0])"])
+                            print(urls)
                         }
-                        .navigationTitle("Files")
+                    }
+                    .navigationTitle("Files")
                 }
-                .navigationViewStyle(StackNavigationViewStyle())
-            }
-            VStack {
-                WebView(url: URL(string: "\(opening)")!)
-            }
-            .navigationViewStyle(StackNavigationViewStyle())
-        }
-        .toolbar {
-            Button("cast") {
-                opentv = opening
-                externalDisplayContent.string = opening
                 
             }
+            
         }
         .navigationTitle(title)
         .navigationBarTitleDisplayMode(.inline)
+        .navigationBarTitle("")
+        .navigationBarHidden(true)
         
     }
     
-        
+    
+}
+
+
+struct Fileview: View {
+    var name: String
+    var path: String
+    var body: some View {
+        VStack {
+            TaskSwipeGesture(urlWeb: "\(path)")
+        }
+        .navigationBarTitle(name)
+    }
 }
 
 extension String {
-
+    
     var length: Int {
         return count
     }
-
+    
     subscript (i: Int) -> String {
         return self[i ..< i + 1]
     }
-
+    
     func substring(fromIndex: Int) -> String {
         return self[min(fromIndex, length) ..< length]
     }
-
+    
     func substring(toIndex: Int) -> String {
         return self[0 ..< max(0, toIndex)]
     }
-
+    
     subscript (r: Range<Int>) -> String {
         let range = Range(uncheckedBounds: (lower: max(0, min(length, r.lowerBound)),
                                             upper: min(length, max(0, r.upperBound))))

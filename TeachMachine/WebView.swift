@@ -8,17 +8,83 @@
 import SwiftUI
 import WebKit
 
-struct WebView: UIViewRepresentable {
+//struct WebView2: View {
+//    var url: String
+//    var body: some View {
+//        WebView(url: "\(url)")
+//    }
+//
+//}
 
-    var url: URL
+struct TaskSwipeGesture: View {
+    @State var update = false
+    let urlWeb: String
+    var body: some View {
+//        if update {
+//            refreshhelper(update: $update)
+//        } else {
+            WebView(url: urlWeb)
+//                .onChange(of: urlWeb) { i in
+//                    update = true
+//                }
+//        }
+        
+    }
+}
 
-    func makeUIView(context: Context) -> WKWebView {
-        return WKWebView()
+struct refreshhelper: View {
+    @Binding var update: Bool
+    var body: some View {
+        Text("loading...")
+            .onAppear() {
+                update = false
+            }
+    }
+}
+
+class MyScrollViewDelegate: NSObject {
+    weak var webView: WKWebView?
+}
+
+extension MyScrollViewDelegate: UIScrollViewDelegate {
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        printLocation(for: scrollView, label: "will begin dragging")
     }
 
-    func updateUIView(_ webView: WKWebView, context: Context) {
-        let request = URLRequest(url: url)
-        webView.load(request)
+    func scrollViewWillEndDragging(
+        _ scrollView: UIScrollView,
+        withVelocity velocity: CGPoint,
+        targetContentOffset: UnsafeMutablePointer<CGPoint>)
+    {
+        printLocation(for: scrollView, label: "will end dragging")
+    }
+
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.isTracking {
+            printLocation(for: scrollView, label: "is tracking")
+        }
     }
     
+    private func printLocation(for scrollView: UIScrollView, label: String) {
+        if let webView = webView {
+            print("\(label) \(scrollView.panGestureRecognizer.location(in: webView))")
+        }
+    }
+}
+
+struct WebView: UIViewRepresentable {
+    let url: String
+    let scrollViewDelegate = MyScrollViewDelegate()
+
+    func makeUIView(context: Context) -> some WKWebView {
+        let webView = WKWebView()
+        scrollViewDelegate.webView = webView
+        webView.scrollView.delegate = scrollViewDelegate
+        return webView
+    }
+
+    func updateUIView(_ uiView: UIViewType, context: Context) {
+        let request = URLRequest(url: URL(string: url)!)
+        uiView.load(request)
+    }
 }
