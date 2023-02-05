@@ -61,7 +61,7 @@ struct TeacherView: View {
             
         }
         .sheet(isPresented: $popover) {
-            NavigationStack {
+            NavigationView {
                 List {
                     Section {
                         Text("課堂名稱")
