@@ -41,9 +41,12 @@ struct ClassView: View {
                                         let parsed = files[i-1].replacingOccurrences(of: "lkcn.", with: "")
                                         let parsed2 = parsed.replacingOccurrences(of: "lkcu.", with: "")
                                         let parsed3 = parsed2.replacingOccurrences(of: "%20", with: " ")
-                                        NavigationLink(destination: newfileView(title: parsed3, text: $files[i-1+1]), label: {
+                                        NavigationLink(destination: {
+                                            newfileView(title: parsed3, text: $files[i])
+                                        }, label: {
                                             Text(parsed3)
                                         })
+                                        
                                     }
                                 }.onDelete { indexSet in
                                     let a = "\(indexSet)"

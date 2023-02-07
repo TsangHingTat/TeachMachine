@@ -154,8 +154,50 @@ class getdata {
     }
     func stringtoarray(string: String) -> Array<String> {
         let string = string
-        var array = string.components(separatedBy: "/dsf/")
+        let array = string.components(separatedBy: "/dsf/")
+        return array
+    }
+    
+    
+    func arraytostring2(array: Array<String>) -> String {
+        let names = array
+        var nameString = names.joined(separator: "/dsf2/")
+        if nameString != "" || nameString != " " {
+            nameString.remove(at: nameString.startIndex)
+            nameString.remove(at: nameString.startIndex)
+            nameString.remove(at: nameString.startIndex)
+            nameString.remove(at: nameString.startIndex)
+            nameString.remove(at: nameString.startIndex)
+        }
+        return nameString
+    }
+    func stringtoarray2(string: String) -> Array<String> {
+        let string = string
+        let array = string.components(separatedBy: "/dsf2/")
+        return array
+    }
+    
+    
+    func arraytostring3(array: Array<String>) -> String {
+        let names = array
+        let nameString = names.joined(separator: "/dsf3/")
+        
+        return nameString
+    }
+    func stringtoarray3(string: String) -> Array<String> {
+        let string = string
+        let array = string.components(separatedBy: "/dsf3/")
+        return array
+    }
+    func arraytostring4(array: Array<String>) -> String {
+        let names = array
+        let nameString = names.joined(separator: "/dsf3/")
+        
+        return nameString
+    }
+    func stringtoarray4(string: String) -> Array<String> {
+        let string = string
+        let array = string.components(separatedBy: "/dsf3/")
         return array
     }
 }
-
